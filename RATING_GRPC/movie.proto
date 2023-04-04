@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = ".;pb";
+
+package movie;
+
+message MovieId {
+  int32 movie_id = 1;
+}
+
+message MovieRating {
+  int32 movie_id = 1;
+  double rating = 2;
+}
+
+service MovieRatingService {
+  rpc AddRating(MovieRating) returns (MovieRating) {}
+  rpc GetRating(MovieId) returns (MovieRating) {}
+  rpc UpdateRating(MovieRating) returns (MovieRating) {}
+  rpc DeleteRating(MovieId) returns (MovieRating) {}
+}
